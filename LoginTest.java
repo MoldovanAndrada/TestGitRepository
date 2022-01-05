@@ -1,5 +1,8 @@
 package tests;
+import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -14,6 +17,9 @@ public class LoginTest extends BaseTest {
 
 		ContactsPage contactsPage = new ContactsPage(this.driver);
 		contactsPage.contact(name, email, subject, message);
+		
+		WebElement yourReview = driver.findElement(By.partialLinkText("By Thank you for your message. It has been sent."));
+		assertTrue(yourReview.isDisplayed());
 		
 	}
 
